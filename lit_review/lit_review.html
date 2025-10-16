@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dinelka Nanayakkara">
+
+<title>Literature Review</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="lit_review_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lit_review_files/libs/quarto-html/quarto.js"></script>
+<script src="lit_review_files/libs/quarto-html/popper.min.js"></script>
+<script src="lit_review_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lit_review_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lit_review_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lit_review_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lit_review_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lit_review_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lit_review_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Literature Review</h1>
+<p class="subtitle lead">Phase 1: Leveraging machine learning and transfer learning methods to subtype pancreatic cancer using liquid biopsies</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dinelka Nanayakkara </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="biological-background" class="level3">
+<h3 class="anchored" data-anchor-id="biological-background">Biological background</h3>
+<p>Pancreatic ductal adenocarcinoma (or commonly known as pancreatic cancer and referred to hereafter) is expected to be the second leading cause of cancer mortality by 2030 <span class="citation" data-cites="rahibEstimatedProjectionUS2021">(<a href="#ref-rahibEstimatedProjectionUS2021" role="doc-biblioref">Rahib et al. 2021</a>)</span>. As for 2025, the estimated new pancreatic cancer cases are 67,440 while the estimated deaths are 51,980 <span class="citation" data-cites="siegelCancerStatistics20252025">(<a href="#ref-siegelCancerStatistics20252025" role="doc-biblioref">Siegel et al. 2025</a>)</span>. Poor prognosis and the asymptotic nature of the cancer results in high mortality rates because the disease is often diagnosed at a later stage. Obstructive jaundice is a classic symptom of pancreatic cancer, but unfortunately shows up only at a later stage<span class="citation" data-cites="dominguez-munozBiliaryDrainagePancreatic2017">(<a href="#ref-dominguez-munozBiliaryDrainagePancreatic2017" role="doc-biblioref">Domínguez-Muñoz, Lariño-Noia, and Iglesias-Garcia 2017</a>)</span>. Early symptoms for pancreatic cancer are non-specific and common, and includes weight loss, new onset of diabetes, abdominal pain, and back pain <span class="citation" data-cites="sahNewInsightsPancreatic2013 silversteinSuspectedPancreaticCancer1984 rosaNewOnsetDiabetesMellitus1989 girelliPancreaticCarcinomaDifferences1995">(<a href="#ref-sahNewInsightsPancreatic2013" role="doc-biblioref">Sah et al. 2013</a>; <a href="#ref-silversteinSuspectedPancreaticCancer1984" role="doc-biblioref">Silverstein et al. 1984</a>; <a href="#ref-rosaNewOnsetDiabetesMellitus1989" role="doc-biblioref">Rosa, Van Linda, and Abourizk 1989</a>; <a href="#ref-girelliPancreaticCarcinomaDifferences1995" role="doc-biblioref">Girelli et al. 1995</a>)</span>. As shown in <span class="citation" data-cites="chariPancreaticCancerAssociated2008">(<a href="#ref-chariPancreaticCancerAssociated2008" role="doc-biblioref">Chari et al. 2008</a>)</span>, a greater proportion of cancer subjects met criteria for diabetes compared to controls, anytime in the 60-month period before the index date (<span style="color:red">check the definition of index date</span>).</p>
+<p>Given that most symptoms are non-specific and that the specific ones appear at a later stage, screening for pancreatic cancer has become incredibly challenging. Screening a subject who is asymptotic, but possibly at risk, using invasive techniques such as obtaining a tissue biopsy is not recommended <span class="citation" data-cites="uspreventiveservicestaskforceScreeningPancreaticCancer2019">(<a href="#ref-uspreventiveservicestaskforceScreeningPancreaticCancer2019" role="doc-biblioref">US Preventive Services Task Force et al. 2019</a>)</span>. Leveraging liquid biopsies has become a novel tool used to overcome this and to hopefully be the gateway to the early detection problem in pancreatic cancer <span class="citation" data-cites="oneillBiomarkersDiagnosisPancreatic2021">(<a href="#ref-oneillBiomarkersDiagnosisPancreatic2021" role="doc-biblioref">O’Neill and Stoita 2021</a>)</span>. While we currently have carbohydrate antigen 19-9 (CA19-9) as a serological biomarker, it is still not specific or sensitive enough to be used for pancreatic cancer screening<span class="citation" data-cites="staalSTRAPlasmaBiomarker2019">(<a href="#ref-staalSTRAPlasmaBiomarker2019" role="doc-biblioref">Staal et al. 2019</a>)</span>.</p>
+<p>In addition to early diagnosis of pancreatic cancer, another critical step forward is predicting the cancer’s molecular subtype. We have previously shown there to be two tumor-intrinsic subtypes [moffittVirtualMicrodissectionIdentifies2015; <span class="citation" data-cites="rashidPurityIndependentSubtyping2020">Rashid et al. (<a href="#ref-rashidPurityIndependentSubtyping2020" role="doc-biblioref">2020</a>)</span>]. Other studies too have shown that there indeed are two main molecular subtypes of pancreatic cancer <span class="citation" data-cites="robertsonEvidenceMolecularSubtyping2024 singhClinicalGenomicFeatures2024 mitsuyasubarbosaDecipheringHeterogeneityPancreatic2025">(<a href="#ref-robertsonEvidenceMolecularSubtyping2024" role="doc-biblioref">Robertson et al. 2024</a>; <a href="#ref-singhClinicalGenomicFeatures2024" role="doc-biblioref">Singh et al. 2024</a>; <a href="#ref-mitsuyasubarbosaDecipheringHeterogeneityPancreatic2025" role="doc-biblioref">Mitsuyasu Barbosa et al. 2025</a>)</span>. These two molecular subtypes are basal-like and classical. <span class="citation" data-cites="rashidPurityIndependentSubtyping2020">(<a href="#ref-rashidPurityIndependentSubtyping2020" role="doc-biblioref">Rashid et al. 2020</a>)</span> compares these subtypes with survival data and shows that basal-like is more aggressive and shows more resistance to FOLFIRINOX. This classifier by <span class="citation" data-cites="rashidPurityIndependentSubtyping2020">(<a href="#ref-rashidPurityIndependentSubtyping2020" role="doc-biblioref">Rashid et al. 2020</a>)</span> was built using bulkRNA seq data. We lack statistical methods that are able to predict pancreatic cancer subtype using liquid biopsies. This motivated us to look at possibilities to build a prediction model that subtypes pancreatic cancer using liquid biopsies.</p>
+<p>Future results of this paper (still at the analysis stage) can be viewed in multiple angles. First, we present a pancreatic cancer subtype classifier built primarily on extracellular vesicles RNA (evRNA) data but leveraging knowledge from more stable bulkRNA sequencing data. evRNAs are found in serum liquid biopsies and are supposed to be higher in volume compared to others such as circulating (ct) DNA and Circulating Tumor Cells (CTCs). Both coding (messenger) and non-coding (long non-coding RNAs, microRNAs, and circular RNAs) are present in EVs. More background on EVs are provided below:</p>
+<p>Extracellular vesicles (EVs) are membrane-bound produced secreted from numerous cell types to maintain cellular homeostasis and facilitate intercellular communication. They have been isolated from a variety of bodily fluids such as plasma, serum, urine, saliva, cerebospinal fluids (CBF), semen, and breast milk <span class="citation" data-cites="hirshmanChapterTwoExtracellular2016 pisitkunIdentificationProteomicProfiling2004 vojtechExosomesHumanSemen2014">(<a href="#ref-hirshmanChapterTwoExtracellular2016" role="doc-biblioref">Hirshman et al. 2016</a>; <a href="#ref-pisitkunIdentificationProteomicProfiling2004" role="doc-biblioref">Pisitkun, Shen, and Knepper 2004</a>; <a href="#ref-vojtechExosomesHumanSemen2014" role="doc-biblioref">Vojtech et al. 2014</a>)</span>. EVs being present in high concentrations in bodily fluids is what makes it attrative as prognostic and diagnositc biomarkers [properziExosomesFutureBiomarkers2013; <span class="citation" data-cites="wangPlasmaExosomesNovel2018">J. Wang et al. (<a href="#ref-wangPlasmaExosomesNovel2018" role="doc-biblioref">2018</a>)</span>; <span class="citation" data-cites="barceloSemenMiRNAsContained2019">Barceló et al. (<a href="#ref-barceloSemenMiRNAsContained2019" role="doc-biblioref">2019</a>)</span>; <span class="citation" data-cites="bozykSalivaryExosomesBiomarkers2023">Bozyk et al. (<a href="#ref-bozykSalivaryExosomesBiomarkers2023" role="doc-biblioref">2023</a>)</span>].</p>
+<p>— touch upon limitations of liquid biopsies as well (might be expensive and harder to separate out evRNA from a plasma sample. because of this, sample sizes of such studies are much smaller).</p>
+</section>
+<section id="statistical-methods" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-methods">Statistical methods</h3>
+<p>It is clear from the previous section that although liquid biopsies have its many advantages, solid statistical &amp; computer science methods are required to reap the true benefits of it overcoming challenges primarily in smaller sample sizes, and high noise &amp; sparsity in the data. These types of problems can be framed in multiple ways. One approach could be within the scope of data augmentation, where we use modern technologies such as Generative Adversarial Networks (GAN), Variational Autoencoders (VAEs), and diffusion models. Another approach would be pre-train a classifier on our rich resource setting which consists of public datasets of bulkRNA seq data, and then use transfer learning methods (many out there) to train a classifer on low resource liquid biopsy datasets. Although not be straightforward, the latter method too might still benefit from data augmentation given that sample sizes are significantly smaller.</p>
+<p>One motivating method in this space is GAiN <span class="citation" data-cites="watersGAiNIntegrativeTool2024">(<a href="#ref-watersGAiNIntegrativeTool2024" role="doc-biblioref">Waters et al. 2024</a>)</span>, which uses a Generative Adversarial Network (GAN) <span class="citation" data-cites="goodfellowGenerativeAdversarialNetworks2014">(<a href="#ref-goodfellowGenerativeAdversarialNetworks2014" role="doc-biblioref">Goodfellow et al. 2014</a>)</span> to address data augmentation in low sample size settings to better perform differential gene expression (DE) and pathway enrichment analysis (PEA) on given phenotypes. Although our problem is not entirely the same, background and output from such methods are certainly applicable and can serve as a starting point for us. However, care must be taken because in methods such as GAiN, both resource settings (low and high) have similar modalities (eg: gene expression using bulkRNA seq/single-cell), whereas our resource settings will have differences which <em>might</em> require additional methods to take them into account. Something interesting about GAiN is that it consists of a random forest as well within its larger framework, which I am yet to understand its value.</p>
+<p>In our opinion, GAiN had the advantage of being able to evaluate and compare its methods using left out samples. However, in our problem we would need many more external datasets of validation (which we are already in the works obtaining). Even though we get them, they will have different sets of modalities which we must account for carefully. I think we should also be careful with accounting for the sparsity in our liquid biopsy setting (low resource) which I believe is not addressed in GAiN.</p>
+<p>Another important aspect relevant to our problem at hand, but not paid attention to by GAiN is the missingness within the data. GAIN <span class="citation" data-cites="yoonGAINMissingData2018">(<a href="#ref-yoonGAINMissingData2018" role="doc-biblioref">Yoon, Jordon, and Schaar 2018</a>)</span>, addresses this issue and in fact uses dangers in invading tumors using biopsies as a motivating example. However, do keep in mind that GAIN only accounts for when the missingness mechanism is completely at random (MCAR).</p>
+<section id="framing-gain-in-a-similar-problem-setting-as-ours" class="level4">
+<h4 class="anchored" data-anchor-id="framing-gain-in-a-similar-problem-setting-as-ours">Framing GAiN in a similar problem setting as ours</h4>
+<p>GAiN leverages the shape of the larger population (richer bulkRNA seq) data while focusing on the specific phenotype difference of the small set. We can think of the phenotype in GAiN as the tumor subtype in our setting. We can consider this to be a probability rather than a binary variable. What we aim to do is to understand biological phenomenon such as gene-gene correlations, differences in gene expression, etc. from the larger dataset and apply it to our smaller data.</p>
+<p>We want the high resource setting data to provide a rich distributional prior, and the GAN then generates synthetic samples aligning with that prior but tuned to the signals present in the small dataset. This is a form of data augmentation via data fusion: patterns from a large biobank are fused with the small-study signals to create surrogate samples that are much more numerous than the original cohort. Other integrative approaches similarly use large datasets to constrain or inform the generative process – for instance, a large unlabeled EHR corpus can help train a generative model which is then conditioned on a small labeled dataset’s characteristics to produce new labeled examples. We are trying to generate new liquid biopsy samples using information from both, data from the small sample and that from data rich samples.</p>
+</section>
+<section id="machine-learning-deep-learning-to-subtype-cancer" class="level4">
+<h4 class="anchored" data-anchor-id="machine-learning-deep-learning-to-subtype-cancer">Machine learning &amp; deep learning to subtype cancer</h4>
+<p>In this section we dive into looking at novel machine learning and deep learning methods already published (but may not be in clinic) that is used to subtype cancers. Here, we don’t necessarily focus on pancreatic cancer but the entire oncology space in general. One of the most recent methods published in this space is MuTATE <span class="citation" data-cites="aytonMuTATEInterpretableMultiendpoint2025">(<a href="#ref-aytonMuTATEInterpretableMultiendpoint2025" role="doc-biblioref">Ayton et al. 2025, aytonMuTATEPackageComprehensive2023</a>)</span>, which is considered to be an automated pipeline for cancer molecular subtyping using tumor biopsies. If I understand this method correctly, they jointly models multiple endpoints to help with better accuracy in molecular subtyping. MuTATE is built on ensemble trees and decision tree methods but boasts better performance than them. At each node, MuTATE calculates endpoint specific information gain (IG) and incorporates p-value–based metrics to prioritize statistically meaningful splits. This splitting is what is referred to as <strong>partitioning</strong> in this paper. In my opinion, MuTATE is able to reduce the complexity and increase model interpretability because data exists for multiple targets/endpoints. However, this is not the case always (especially for us, when we have very sparse data).</p>
+<p>Another method is DeepCC introduced by <span class="citation" data-cites="gaoDeepCCNovelDeep2019">(<a href="#ref-gaoDeepCCNovelDeep2019" role="doc-biblioref">Gao et al. 2019</a>)</span> which indicates high prediction accuracy in molecular subtyping colorectal cancer using artificial neural networks (ANN). Their method performs gene set enrichment analysis (GSEA) for each tumor’s gene expression profile. One could think of this as dimension reduction, in that we transform raw gene expression profiles into a set of pathway activity scores, which are then fed to the ANN as input. These scores are phrased as <strong>functional spectrum</strong> by the authors, because they represent molecular patterns associated with biological functions. Although not related to PDAC nor liquid biopsy data this is a good read to see how deep learning techniques are used to subtype cancers to their known molecular subtypes.</p>
+<p>We also see hybrid deep learning models on multimodal data, such as that by <span class="citation" data-cites="liuHybridDeepLearning2022">(<a href="#ref-liuHybridDeepLearning2022" role="doc-biblioref">Liu et al. 2022</a>)</span>, which attempts to subtype breast cancer. Here, genomics and imaging data are used as inputs to the model, but feature extraction is done on each of the modalities separately essentially obtaining two feature networks. Then, the output of the two feature networks are fused using weighted linear regression and used to predict molecular subtypes. The DNN architecture in this model uses the <strong>inverted pyramid</strong> design where the number of neurons in each subsequent layer reduces. This was used to reduce the parameter complexity while also being able to avoid overfitting. This structure is not always ideal, but should work fine for tabular data such as gene expression. They also ensure that only 5 layers are used (following the LeNet-5 architecture), to avoid overfitting due to limited samples. The authors here have focused deeply on possible overfitting issues in this setting to using <span class="math inline">\(L_2\)</span> regularization and an Exponential Weighted Moving Average (EWMA) model, although I’m not sure why a time-series model would be used here. Being introduced to these regularization techniques within the DL space is important. Although we don’t go over this in great detail here, a separate section is dedicated to this (<span style="color:red">work on adding this</span>).</p>
+<p>Given that we are dealing with large <strong>p</strong> (limited sample size) in liquid biopsy data, we could consider performing dimension reduction prior to performing prediction. For this we can either use traditional methods such as principal component analysis (PCA) or modern ones such as an autoencoder to obtain a latent representation of the data in a lower dimension. Given that our goal is prediction, using an autoencoder is likely the best choice.</p>
+</section>
+<section id="regularization" class="level4">
+<h4 class="anchored" data-anchor-id="regularization">Regularization</h4>
+<p>Regularization is one of the key elements in the machine learning and deep learning space, ensuring that our models generalize well to unseen validation data. Traditionally, when we say regularization, adding penalty terms to a model’s loss function is likely the first thing that comes to mind. However, as <span class="citation" data-cites="DeepLearning">(<a href="#ref-DeepLearning" role="doc-biblioref"><span>“Deep <span>Learning</span>”</span> n.d.</a>)</span> states, regularization is any modiﬁcation we make to a learning algorithm that is intended to reduce its generalization error but not its training error. There are different ways that regularization could be applied to a machine learning setting.</p>
+<p>One way to regularize via data is to either (1) augment the data by generating new samples, or (2) translate the feature space/distribution of the data to a latent representation simplifying the learning task. Using stochastic transformations of the data to create augmented data, we can either preserve the feature space and attempt to preserve the data distribution, or we can map the data to a completely different representation/latent space and make the learning problem easier. These transformations can be applied to either the input <span class="math inline">\(x\)</span>, the hidden space (deep-layer representation of the samples), and/or even the target during the training phase. Distribution of the transformation and its conditional dependencies can be chosen according to how we deem fit to the problem and data at hand. A common example of this type of regularization is dropout and its counterparts (Bayesian dropout, random dropout probability, etc.). Dropout randomly turns off a subset of neurons during the training process, so each batch sees a different subnetwork.</p>
+<p>Another way to regularize learning is via the network architecture and its assumptions about the mapping from the input to output space. Weight sharing, picking an activation function, multi-task learning, and using noisy models are examples of regularizing via the network architecture. Weight sharing is the idea of reusing trainable parameters in several parts of the network, making the model simpler to learn. Activation functions are another way to help with regularization. Maxout units and stochastic pooling were designed explicitly for regularization.</p>
+<p>One other way we discuss here for regularization is that via explicitly defining a regularizing term <span class="math inline">\(R\)</span> within the loss function. <span class="math inline">\(R\)</span> is independent of the loss function <span class="math inline">\(E\)</span>, which depends on the targets. <span class="math inline">\(R\)</span> is used to provide inductive bias, which means to provide assumptions about the mapping other than consistency of the outputs with the targets). Weight decay is widely used and added to the loss function; <span class="math inline">\(R(w) = \lambda\frac{1}{2}||w||_{2}^{2}\)</span>. This looks similar to ridge regression, and also can be written in Bayesian terms using a normal prior on the weights; <span class="math inline">\(p(w) = \mathcal{N}(w|0,\lambda^{-1}\mathcal{I})\)</span>. This can be easily shown via a few steps. Another penalty term that can be used follows the theorem that, if <span class="math inline">\(x_1 \approx x_2\)</span>, then <span class="math inline">\(f_w(x_1) \approx f_w(x_2)\)</span>. Now, the regularization term can be written as <span class="math inline">\(R(f_w,x) = ||J_{f_w}(x)||_F^2\)</span>, where <span class="math inline">\(||\cdot||_F\)</span> denotes the Frobenius norm, and <span class="math inline">\(J_{f_w}(x)\)</span> is the Jacobian of the neural network’s input-output mapping <span class="math inline">\(f_w\)</span> for some fixed network weights <span class="math inline">\(w\)</span>. This approach penalizes mappings with large derivatives, and is used in contractive autoencoders because standard AEs may learn data representations that are sensitive to small input changes in the data. One final thing to discuss here is how optimizers act as regularizers too. For example, Stochastic Gradient Descent (SGD) which is the most common type of optimizer used in DL could help with overfitting and avoiding saddle points via the noise introduced by the varying mini-batches.</p>
+<p>Regardless of how many methods there are out there for regularization, it is important for us to ensure that an appropriate data representation must be chosen. It’s not a great idea to outsource data transformations to learning without using any <em>known</em> transformations.</p>
+</section>
+<section id="variational-autoencoders" class="level4">
+<h4 class="anchored" data-anchor-id="variational-autoencoders">Variational Autoencoders</h4>
+</section>
+<section id="gans" class="level4">
+<h4 class="anchored" data-anchor-id="gans">GANs</h4>
+</section>
+<section id="transfer-learning" class="level4">
+<h4 class="anchored" data-anchor-id="transfer-learning">Transfer learning</h4>
+<p>We mentioned earlier in this review that we could primarily use two ways to approach our problem at hand. The second of these approaches is to leverage our access to rich bulkRNA and single-cell RNA (scRNA) data to pre-train our models and then apply output from these pre-trained models to our liquid biopsy datasets. This approach is commonly called <em>transfer learning</em>. Transfer learning is known to be particularly useful in these scenarios when we have a low resource setting that we want to explore and make inference/prediction on but at the same time do have access to high resource settings with rich data <span class="citation" data-cites="suderBayesianTransferLearning2023">(<a href="#ref-suderBayesianTransferLearning2023" role="doc-biblioref">Suder, Xu, and Dunson 2023</a>)</span>. The history and the technical background of transfer learning will be briefly touched upon in this literature review as there are plenty of comprehensive reviews published on this topic <span class="citation" data-cites="panSurveyTransferLearning2010">(<a href="#ref-panSurveyTransferLearning2010" role="doc-biblioref">Pan and Yang 2010</a>, …)</span>.</p>
+<p>One of the key questions within the transfer learning space is that of how much of weight do we apply on the external information, commonly referred to as the strength of the transfer between domains. When we think about such kind of information transfer, one could relate this topic to that of using prior information to make inference in a Bayesian setting. Although not heavily reviewed in the literature, a Bayesian view towards this problem might be interesting.</p>
+<p>Although multiple authors and literature have provided varying definitions for transfer learning, we will present in this review the definition presented in <span class="citation" data-cites="suderBayesianTransferLearning2023">(<a href="#ref-suderBayesianTransferLearning2023" role="doc-biblioref">Suder, Xu, and Dunson 2023</a>)</span>.</p>
+<p>Here, domain is defined by the two set element, <span class="math inline">\(\mathcal{D} = \{\mathcal{X}, \mathcal{P}\}\)</span>, where <span class="math inline">\(\mathcal{X}\)</span> is the feature space, and <span class="math inline">\(\mathcal{P}\)</span> is the marginal probability distribution of the observations <span class="math inline">\(X \in \mathcal{X}\)</span>. Do note that the label space (targets/y/output) is different and that <span class="math inline">\(\mathcal{X}\)</span> refers to only the feature space. Say that the label space is <span class="math inline">\(\mathcal{Y}\)</span>.</p>
+<p>Now, we define a <em>task</em> on the domain <span class="math inline">\(\mathcal{D}\)</span> as the set <span class="math inline">\(\mathcal{T} = \{\mathcal{Y}, f(\cdot)\}\)</span>, where <span class="math inline">\(f\)</span> is a function representing the ground truth (obviously not observed). More precisely, <span class="math inline">\(f = \{(x, y) \;|\; x \in \mathcal{X}, y \in \mathcal{Y}\}\)</span>.</p>
+<p>Transfer learning can be made flexible in multiple ways. For example, we could certainly have more than one source domains. Now, consider the source domains <span class="math inline">\(\mathcal{D}_1, \mathcal{D}_2,..., \mathcal{D}_K\)</span> with respective associated source tasks <span class="math inline">\(\mathcal{T}_1, \mathcal{T}_2,..., \mathcal{T}_K\)</span>. Of course it will be the same task for all domains in our problem (subtype prediction), but this does not seem to be the case. These are all very problem dependent. We also have our low resource setting which comprises of what we call a <em>target</em> domain <span class="math inline">\(\mathcal{D}_0 = \{\mathcal{X}_0, \mathcal{P}_0\}\)</span> and a <em>target</em> task <span class="math inline">\(\mathcal{T}_0 = \{\mathcal{Y}_0, f_0\}\)</span>. What we want to do is to find an approximation to our <em>target</em> function <span class="math inline">\(f_0\)</span> from the available data <span class="math inline">\((X_0, Y_0) \;|\; X_0 \in \mathcal{X}, Y_0 \in \mathcal{Y}\)</span>.</p>
+<p>Putting all the above definitions together, <strong>transfer learning</strong> can be defined as algorithms that look to obtain accurate approximations of <span class="math inline">\(f_0\)</span> by leveraging knowledge from <span class="math inline">\(\mathcal{D}_1, \mathcal{D}_2,..., \mathcal{D}_K\)</span>, <span class="math inline">\(\mathcal{T}_1, \mathcal{T}_2,..., \mathcal{T}_K\)</span>. In our case, we are interested in using learners pre-trained from our source data (bulk, scRNA, etc.). Diving deeper into this topic makes me want to have two different tasks between the <em>source</em> and <em>target</em> domains, although the two domains will have high similarity in our case.</p>
+<p>While reading this review and more, one might wonder if transfer learning has any shared characteristics with multitask learning. Although some authors lean towards saying that these two areas are interchangeable, some say otherwise. Here, at least with respect to our problem at hand, we will consider them to be distinct areas because our goal is improving performance of the our <em>target</em> task, and not necessarily that of our <em>source</em> tasks. Another related area of interest is continual/lifelong learning <span class="citation" data-cites="wangComprehensiveSurveyContinual2024">(<a href="#ref-wangComprehensiveSurveyContinual2024" role="doc-biblioref">L. Wang et al. 2024</a>)</span>, which is a setting where a system learns a sequence of content one by one and behaves as if they were observed simultaneously. This type of learning aims to rectify the problem of <em>catastrophic forgetting</em> which is the reduced ability to capture old data distributions when adapting to a new one. In the setting of transfer learning, this is when the model starts performing worse on the source tasks after being adjusted to the <em>target</em> task. However, if we are more interested in only the output of the <em>target</em> task, should this still be a problem?</p>
+<p>Talking about all these similar terminology gets me thinking</p>
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-aytonMuTATEInterpretableMultiendpoint2025" class="csl-entry" role="listitem">
+Ayton, Sarah G., Martina Pavlicova, Carla Daniela Robles-Espinoza, Rita Q. Fuentes-Aguilar, Debora Garza-Hernandez, Emmanuel Martínez-Ledesma, Jose Gerardo Tamez-Peña, Mario R. Garcia-Pompermayer, and Víctor Treviño. 2025. <span>“<span>MuTATE</span>: An Interpretable Multi-Endpoint Machine Learning Framework for Automated Molecular Subtyping in Cancer.”</span> <em>Npj Health Systems</em> 2 (1): 23. <a href="https://doi.org/10.1038/s44401-025-00025-4">https://doi.org/10.1038/s44401-025-00025-4</a>.
+</div>
+<div id="ref-barceloSemenMiRNAsContained2019" class="csl-entry" role="listitem">
+Barceló, Maria, Manel Castells, Lluís Bassas, Francesc Vigués, and Sara Larriba. 2019. <span>“Semen <span class="nocase">miRNAs Contained</span> in <span>Exosomes</span> as <span>Non-Invasive Biomarkers</span> for <span>Prostate Cancer Diagnosis</span>.”</span> <em>Scientific Reports</em> 9 (1): 13772. <a href="https://doi.org/10.1038/s41598-019-50172-6">https://doi.org/10.1038/s41598-019-50172-6</a>.
+</div>
+<div id="ref-bozykSalivaryExosomesBiomarkers2023" class="csl-entry" role="listitem">
+Bozyk, Natalie, Kai Dun Tang, Xi Zhang, Martin Batstone, Liz Kenny, Sarju Vasani, and Chamindie Punyadeera. 2023. <span>“Salivary Exosomes as Biomarkers for Early Diagnosis of Oral Squamous Cell Carcinoma.”</span> <em>Oral Oncology Reports</em> 6 (June): 100017. <a href="https://doi.org/10.1016/j.oor.2023.100017">https://doi.org/10.1016/j.oor.2023.100017</a>.
+</div>
+<div id="ref-chariPancreaticCancerAssociated2008" class="csl-entry" role="listitem">
+Chari, Suresh T., Cynthia L. Leibson, Kari G. Rabe, Lawrence J. Timmons, Jeanine Ransom, Mariza de Andrade, and Gloria M. Petersen. 2008. <span>“Pancreatic <span>Cancer</span>–<span>Associated Diabetes Mellitus</span>: <span>Prevalence</span> and <span>Temporal Association With Diagnosis</span> of <span>Cancer</span>.”</span> <em>Gastroenterology</em> 134 (1): 95–101. <a href="https://doi.org/10.1053/j.gastro.2007.10.040">https://doi.org/10.1053/j.gastro.2007.10.040</a>.
+</div>
+<div id="ref-DeepLearning" class="csl-entry" role="listitem">
+<span>“Deep <span>Learning</span>.”</span> n.d. https://www.deeplearningbook.org/. Accessed October 6, 2025.
+</div>
+<div id="ref-dominguez-munozBiliaryDrainagePancreatic2017" class="csl-entry" role="listitem">
+Domínguez-Muñoz, J. Enrique, Jose Lariño-Noia, and Julio Iglesias-Garcia. 2017. <span>“Biliary Drainage in Pancreatic Cancer: <span>The</span> Endoscopic Retrograde Cholangiopancreatography Perspective.”</span> <em>Endoscopic Ultrasound</em> 6 (Suppl 3): S119. <a href="https://doi.org/10.4103/eus.eus_79_17">https://doi.org/10.4103/eus.eus_79_17</a>.
+</div>
+<div id="ref-gaoDeepCCNovelDeep2019" class="csl-entry" role="listitem">
+Gao, Feng, Wei Wang, Miaomiao Tan, Lina Zhu, Yuchen Zhang, Evelyn Fessler, Louis Vermeulen, and Xin Wang. 2019. <span>“<span>DeepCC</span>: A Novel Deep Learning-Based Framework for Cancer Molecular Subtype Classification.”</span> <em>Oncogenesis</em> 8 (9): 44. <a href="https://doi.org/10.1038/s41389-019-0157-8">https://doi.org/10.1038/s41389-019-0157-8</a>.
+</div>
+<div id="ref-girelliPancreaticCarcinomaDifferences1995" class="csl-entry" role="listitem">
+Girelli, C. M., G. Reguzzoni, E. Limido, A. Savastano, and F. Rocca. 1995. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/7617956">Pancreatic Carcinoma: Differences Between Patients with or Without Diabetes Mellitus</a>.”</span> <em>Recenti Progressi in Medicina</em> 86 (4): 143–46.
+</div>
+<div id="ref-goodfellowGenerativeAdversarialNetworks2014" class="csl-entry" role="listitem">
+Goodfellow, Ian J., Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. 2014. <span>“Generative <span>Adversarial Networks</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.1406.2661">https://doi.org/10.48550/arXiv.1406.2661</a>.
+</div>
+<div id="ref-hirshmanChapterTwoExtracellular2016" class="csl-entry" role="listitem">
+Hirshman, B. R., R. T. Kras, J. C. Akers, B. S. Carter, and C. C. Chen. 2016. <span>“Chapter <span>Two</span> - <span>Extracellular Vesicles</span> in <span>Molecular Diagnostics</span>: <span>An Overview</span> with a <span>Focus</span> on <span>CNS Diseases</span>.”</span> In <em>Advances in <span>Clinical Chemistry</span></em>, edited by Gregory S. Makowski, 76:37–53. Elsevier. <a href="https://doi.org/10.1016/bs.acc.2016.05.005">https://doi.org/10.1016/bs.acc.2016.05.005</a>.
+</div>
+<div id="ref-liuHybridDeepLearning2022" class="csl-entry" role="listitem">
+Liu, T., J. Huang, T. Liao, R. Pu, S. Liu, and Y. Peng. 2022. <span>“A <span>Hybrid Deep Learning Model</span> for <span>Predicting Molecular Subtypes</span> of <span>Human Breast Cancer Using Multimodal Data</span>.”</span> <em>IRBM</em> 43 (1): 62–74. <a href="https://doi.org/10.1016/j.irbm.2020.12.002">https://doi.org/10.1016/j.irbm.2020.12.002</a>.
+</div>
+<div id="ref-mitsuyasubarbosaDecipheringHeterogeneityPancreatic2025" class="csl-entry" role="listitem">
+Mitsuyasu Barbosa, Barbara, Alexandre Todorovic Fabro, Roberto da Silva Gomes, and Claudia Aparecida Rainho. 2025. <span>“Deciphering the <span>Heterogeneity</span> of <span>Pancreatic Cancer</span>: <span>DNA Methylation-Based Cell Type Deconvolution Unveils Distinct Subgroups</span> and <span>Immune Landscapes</span>.”</span> <em>Epigenomes</em> 9 (3): 34. <a href="https://doi.org/10.3390/epigenomes9030034">https://doi.org/10.3390/epigenomes9030034</a>.
+</div>
+<div id="ref-oneillBiomarkersDiagnosisPancreatic2021" class="csl-entry" role="listitem">
+O’Neill, Robert S, and Alina Stoita. 2021. <span>“Biomarkers in the Diagnosis of Pancreatic Cancer: <span>Are</span> We Closer to Finding the Golden Ticket?”</span> <em>World Journal of Gastroenterology</em> 27 (26): 4045–87. <a href="https://doi.org/10.3748/wjg.v27.i26.4045">https://doi.org/10.3748/wjg.v27.i26.4045</a>.
+</div>
+<div id="ref-panSurveyTransferLearning2010" class="csl-entry" role="listitem">
+Pan, Sinno Jialin, and Qiang Yang. 2010. <span>“A <span>Survey</span> on <span>Transfer Learning</span>.”</span> <em>IEEE Transactions on Knowledge and Data Engineering</em> 22 (10): 1345–59. <a href="https://doi.org/10.1109/TKDE.2009.191">https://doi.org/10.1109/TKDE.2009.191</a>.
+</div>
+<div id="ref-pisitkunIdentificationProteomicProfiling2004" class="csl-entry" role="listitem">
+Pisitkun, Trairak, Rong-Fong Shen, and Mark A. Knepper. 2004. <span>“Identification and Proteomic Profiling of Exosomes in Human Urine.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 101 (36): 13368–73. <a href="https://doi.org/10.1073/pnas.0403453101">https://doi.org/10.1073/pnas.0403453101</a>.
+</div>
+<div id="ref-rahibEstimatedProjectionUS2021" class="csl-entry" role="listitem">
+Rahib, Lola, Mackenzie R. Wehner, Lynn M. Matrisian, and Kevin T. Nead. 2021. <span>“Estimated <span>Projection</span> of <span>US Cancer Incidence</span> and <span>Death</span> to 2040.”</span> <em>JAMA Network Open</em> 4 (4): e214708. <a href="https://doi.org/10.1001/jamanetworkopen.2021.4708">https://doi.org/10.1001/jamanetworkopen.2021.4708</a>.
+</div>
+<div id="ref-rashidPurityIndependentSubtyping2020" class="csl-entry" role="listitem">
+Rashid, Naim U., Xianlu L. Peng, Chong Jin, Richard A. Moffitt, Keith E. Volmar, Brian A. Belt, Roheena Z. Panni, et al. 2020. <span>“Purity <span>Independent Subtyping</span> of <span>Tumors</span> (<span>PurIST</span>), <span>A Clinically Robust</span>, <span class="nocase">Single-sample Classifier</span> for <span>Tumor Subtyping</span> in <span>Pancreatic Cancer</span>.”</span> <em>Clinical Cancer Research</em> 26 (1): 82–92. <a href="https://doi.org/10.1158/1078-0432.CCR-19-1467">https://doi.org/10.1158/1078-0432.CCR-19-1467</a>.
+</div>
+<div id="ref-robertsonEvidenceMolecularSubtyping2024" class="csl-entry" role="listitem">
+Robertson, Francis P., Andrew Cameron, Harry V. M. Spiers, Nejo Joseph, Ellie Taylor, Bathiya Ratnayake, Nigel B. Jamieson, and Sanjay Pandanaboyana. 2024. <span>“Evidence for Molecular Subtyping in Pancreatic Ductal Adenocarcinoma: A Systematic Review.”</span> <em>HPB</em> 26 (5): 609–17. <a href="https://doi.org/10.1016/j.hpb.2024.02.001">https://doi.org/10.1016/j.hpb.2024.02.001</a>.
+</div>
+<div id="ref-rosaNewOnsetDiabetesMellitus1989" class="csl-entry" role="listitem">
+Rosa, Joseph A., Brian M. Van Linda, and Nicolas N. Abourizk. 1989. <span>“New-<span>Onset Diabetes Mellitus</span> as a <span>Harbinger</span> of <span>Pancreatic Carcinoma A Case Report</span> and <span>Literature Review</span>.”</span> <em>Journal of Clinical Gastroenterology</em> 11 (2): 211.
+</div>
+<div id="ref-sahNewInsightsPancreatic2013" class="csl-entry" role="listitem">
+Sah, Raghuwansh P., Sajan Jiv Singh Nagpal, Debabrata Mukhopadhyay, and Suresh T. Chari. 2013. <span>“New Insights into Pancreatic Cancer-Induced Paraneoplastic Diabetes.”</span> <em>Nature Reviews Gastroenterology &amp; Hepatology</em> 10 (7): 423–33. <a href="https://doi.org/10.1038/nrgastro.2013.49">https://doi.org/10.1038/nrgastro.2013.49</a>.
+</div>
+<div id="ref-siegelCancerStatistics20252025" class="csl-entry" role="listitem">
+Siegel, Rebecca L., Tyler B. Kratzer, Angela N. Giaquinto, Hyuna Sung, and Ahmedin Jemal. 2025. <span>“Cancer Statistics, 2025.”</span> <em>CA: A Cancer Journal for Clinicians</em> 75 (1): 10–45. <a href="https://doi.org/10.3322/caac.21871">https://doi.org/10.3322/caac.21871</a>.
+</div>
+<div id="ref-silversteinSuspectedPancreaticCancer1984" class="csl-entry" role="listitem">
+Silverstein, Marc D., James M. Richter, Daniel K. Podolsky, and Andrew L. Warshaw. 1984. <span>“Suspected Pancreatic Cancer Presenting as Pain or Weight Loss: <span>Analysis</span> of Diagnostic Strategies.”</span> <em>World Journal of Surgery</em> 8 (6): 839–45. <a href="https://doi.org/10.1007/BF01656023">https://doi.org/10.1007/BF01656023</a>.
+</div>
+<div id="ref-singhClinicalGenomicFeatures2024" class="csl-entry" role="listitem">
+Singh, Harshabad, Joanne Xiu, Kevin S. Kapner, Chen Yuan, Raja R. Narayan, Matthew Oberley, Alex Farrell, et al. 2024. <span>“Clinical and <span>Genomic Features</span> of <span>Classical</span> and <span>Basal Transcriptional Subtypes</span> in <span>Pancreatic Cancer</span>.”</span> <em>Clinical Cancer Research</em> 30 (21): 4932–42. <a href="https://doi.org/10.1158/1078-0432.CCR-24-1164">https://doi.org/10.1158/1078-0432.CCR-24-1164</a>.
+</div>
+<div id="ref-staalSTRAPlasmaBiomarker2019" class="csl-entry" role="listitem">
+Staal, Ben, Ying Liu, Daniel Barnett, Peter Hsueh, Zonglin He, ChongFeng Gao, Katie Partyka, et al. 2019. <span>“The <span class="nocase">sTRA Plasma Biomarker</span>: <span>Blinded Validation</span> of <span>Improved Accuracy Over CA19-9</span> in <span>Pancreatic Cancer Diagnosis</span>.”</span> <em>Clinical Cancer Research</em> 25 (9): 2745–54. <a href="https://doi.org/10.1158/1078-0432.CCR-18-3310">https://doi.org/10.1158/1078-0432.CCR-18-3310</a>.
+</div>
+<div id="ref-suderBayesianTransferLearning2023" class="csl-entry" role="listitem">
+Suder, Piotr M., Jason Xu, and David B. Dunson. 2023. <span>“Bayesian <span>Transfer Learning</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2312.13484">https://doi.org/10.48550/arXiv.2312.13484</a>.
+</div>
+<div id="ref-uspreventiveservicestaskforceScreeningPancreaticCancer2019" class="csl-entry" role="listitem">
+US Preventive Services Task Force, Douglas K. Owens, Karina W. Davidson, Alex H. Krist, Michael J. Barry, Michael Cabana, Aaron B. Caughey, et al. 2019. <span>“Screening for <span>Pancreatic Cancer</span>: <span>US Preventive Services Task Force Reaffirmation Recommendation Statement</span>.”</span> <em>JAMA</em> 322 (5): 438–44. <a href="https://doi.org/10.1001/jama.2019.10232">https://doi.org/10.1001/jama.2019.10232</a>.
+</div>
+<div id="ref-vojtechExosomesHumanSemen2014" class="csl-entry" role="listitem">
+Vojtech, Lucia, Sangsoon Woo, Sean Hughes, Claire Levy, Lamar Ballweber, Renan P. Sauteraud, Johanna Strobl, et al. 2014. <span>“Exosomes in Human Semen Carry a Distinctive Repertoire of Small Non-Coding <span>RNAs</span> with Potential Regulatory Functions.”</span> <em>Nucleic Acids Research</em> 42 (11): 7290–7304. <a href="https://doi.org/10.1093/nar/gku347">https://doi.org/10.1093/nar/gku347</a>.
+</div>
+<div id="ref-wangPlasmaExosomesNovel2018" class="csl-entry" role="listitem">
+Wang, Jianjun, Yuanyuan Liu, Wangwei Sun, Qinghui Zhang, Tao Gu, and Guangxin Li. 2018. <span>“Plasma Exosomes as Novel Biomarker for the Early Diagnosis of Gastric Cancer.”</span> <em>Cancer Biomarkers</em> 21 (4): 805–12. <a href="https://doi.org/10.3233/CBM-170738">https://doi.org/10.3233/CBM-170738</a>.
+</div>
+<div id="ref-wangComprehensiveSurveyContinual2024" class="csl-entry" role="listitem">
+Wang, Liyuan, Xingxing Zhang, Hang Su, and Jun Zhu. 2024. <span>“A <span>Comprehensive Survey</span> of <span>Continual Learning</span>: <span>Theory</span>, <span>Method</span> and <span>Application</span>.”</span> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> 46 (8): 5362–83. <a href="https://doi.org/10.1109/TPAMI.2024.3367329">https://doi.org/10.1109/TPAMI.2024.3367329</a>.
+</div>
+<div id="ref-watersGAiNIntegrativeTool2024" class="csl-entry" role="listitem">
+Waters, Michael R., Matthew Inkman, Kay Jayachandran, Roman O. Kowalchuk, Clifford Robinson, Julie K. Schwarz, S. Joshua Swamidass, Obi L. Griffith, Jeffrey J. Szymanski, and Jin Zhang. 2024. <span>“<span>GAiN</span>: <span>An</span> Integrative Tool Utilizing Generative Adversarial Neural Networks for Augmented Gene Expression Analysis.”</span> <em>Patterns</em> 5 (2): 100910. <a href="https://doi.org/10.1016/j.patter.2023.100910">https://doi.org/10.1016/j.patter.2023.100910</a>.
+</div>
+<div id="ref-yoonGAINMissingData2018" class="csl-entry" role="listitem">
+Yoon, Jinsung, James Jordon, and Mihaela van der Schaar. 2018. <span>“<span>GAIN</span>: <span>Missing Data Imputation</span> Using <span>Generative Adversarial Nets</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.1806.02920">https://doi.org/10.48550/arXiv.1806.02920</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
